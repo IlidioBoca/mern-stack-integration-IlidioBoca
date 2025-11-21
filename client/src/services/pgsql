@@ -1,0 +1,20 @@
+client/
+├── src/
+│   ├── api/api.js
+│   ├── context/BlogContext.jsx
+│   ├── components/
+│   │   ├── Navbar.jsx
+│   │   ├── PostCard.jsx
+│   │   └── Loader.jsx
+│   ├── pages/
+│   │   ├── Home.jsx
+│   │   ├── PostDetail.jsx
+│   │   ├── CreatePost.jsx
+│   │   ├── EditPost.jsx
+│   │   └── Login.jsx
+│   ├── App.jsx
+│   ├── main.jsx
+│   └── styles.css
+├── index.html
+├── package.json
+└── vite.config.js

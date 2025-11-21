@@ -1,78 +1,140 @@
-# MERN Stack Integration Assignment
+# MERN Blog Full-Stack
 
-This assignment focuses on building a full-stack MERN (MongoDB, Express.js, React.js, Node.js) application that demonstrates seamless integration between front-end and back-end components.
+##  Visão Geral
 
-## Assignment Overview
+Este é um **aplicativo de Blog Full-Stack** desenvolvido com a **pilha MERN (MongoDB, Express.js, React.js, Node.js)**.  
+O projeto demonstra integração completa entre front-end e back-end, incluindo:
 
-You will build a blog application with the following features:
-1. RESTful API with Express.js and MongoDB
-2. React front-end with component architecture
-3. Full CRUD functionality for blog posts
-4. User authentication and authorization
-5. Advanced features like image uploads and comments
+- Autenticação de usuários (JWT)  
+- CRUD de posts e categorias  
+- Upload de imagens para posts  
+- Comentários em posts  
+- Paginação de posts  
+- Rotas protegidas  
+- Interface responsiva com React + Vite  
 
-## Project Structure
+---
 
-```
+## Tecnologias Utilizadas
+
+**Back-End:**
+- Node.js, Express.js, MongoDB, Mongoose
+- JWT para autenticação
+- bcrypt para hash de senhas
+- Multer para upload de imagens
+- express-validator para validação de dados
+- cors, dotenv, morgan  
+
+**Front-End:**
+- React.js, React Router, Context API
+- Axios para chamadas à API
+- Vite como bundler
+- CSS simples ou Tailwind (opcional)  
+
+---
+
+##  Estrutura do Projeto
 mern-blog/
-├── client/                 # React front-end
-│   ├── public/             # Static files
-│   ├── src/                # React source code
-│   │   ├── components/     # Reusable components
-│   │   ├── pages/          # Page components
-│   │   ├── hooks/          # Custom React hooks
-│   │   ├── services/       # API services
-│   │   ├── context/        # React context providers
-│   │   └── App.jsx         # Main application component
-│   └── package.json        # Client dependencies
-├── server/                 # Express.js back-end
-│   ├── config/             # Configuration files
-│   ├── controllers/        # Route controllers
-│   ├── models/             # Mongoose models
-│   ├── routes/             # API routes
-│   ├── middleware/         # Custom middleware
-│   ├── utils/              # Utility functions
-│   ├── server.js           # Main server file
-│   └── package.json        # Server dependencies
-└── README.md               # Project documentation
-```
+│
+├── server/ # Back-End
+│ ├── uploads/ # Imagens de posts
+│ ├── src/
+│ │ ├── config/db.js
+│ │ ├── controllers/
+│ │ ├── middleware/
+│ │ ├── models/
+│ │ ├── routes/
+│ │ └── utils/upload.js
+│ ├── .env.example
+│ ├── package.json
+│ └── server.js
+│
+├── client/ # Front-End
+│ ├── src/
+│ │ ├── api/api.js
+│ │ ├── context/BlogContext.jsx
+│ │ ├── components/
+│ │ ├── pages/
+│ │ ├── App.jsx
+│ │ ├── main.jsx
+│ │ └── styles.css
+│ ├── index.html
+│ ├── package.json
+│ └── vite.config.js
+│
+└── README.md
 
-## Getting Started
 
-1. Accept the GitHub Classroom assignment invitation
-2. Clone your personal repository that was created by GitHub Classroom
-3. Follow the setup instructions in the `Week4-Assignment.md` file
-4. Complete the tasks outlined in the assignment
+---
 
-## Files Included
+## Instalação e Configuração
 
-- `Week4-Assignment.md`: Detailed assignment instructions
-- Starter code for both client and server:
-  - Basic project structure
-  - Configuration files
-  - Sample models and components
+### Pré-requisitos
+- Node.js (v18 ou superior)  
+- MongoDB local ou MongoDB Atlas  
 
-## Requirements
 
-- Node.js (v18 or higher)
-- MongoDB (local installation or Atlas account)
-- npm or yarn
-- Git
+Documentação da API
+Autenticação
 
-## Submission
+POST /api/auth/register → Registrar usuário
 
-Your work will be automatically submitted when you push to your GitHub Classroom repository. Make sure to:
+POST /api/auth/login → Login e recebimento do token JWT
 
-1. Complete both the client and server portions of the application
-2. Implement all required API endpoints
-3. Create the necessary React components and hooks
-4. Document your API and setup process in the README.md
-5. Include screenshots of your working application
+Posts
 
-## Resources
+GET /api/posts → Listar posts (paginados: ?page=1&limit=5)
 
-- [MongoDB Documentation](https://docs.mongodb.com/)
-- [Express.js Documentation](https://expressjs.com/)
-- [React Documentation](https://react.dev/)
-- [Node.js Documentation](https://nodejs.org/en/docs/)
-- [Mongoose Documentation](https://mongoosejs.com/docs/) 
+GET /api/posts/:id → Obter post específico
+
+POST /api/posts → Criar post (autenticado)
+
+PUT /api/posts/:id → Editar post (autenticado)
+
+DELETE /api/posts/:id → Deletar post (autenticado)
+
+Categorias
+
+GET /api/categories → Listar categorias
+
+POST /api/categories → Criar categoria (autenticado)
+
+Comentários
+
+GET /api/posts/:postId/comments → Listar comentários
+
+POST /api/posts/:postId/comments → Criar comentário (autenticado)
+
+ Funcionalidades
+
+Back-End:
+
+Registro/Login de usuários com JWT
+
+CRUD de posts e categorias
+
+Upload de imagens
+
+Comentários
+
+Paginação de posts
+
+Rotas protegidas
+
+Front-End:
+
+Interface responsiva com React + Context API
+
+Listagem de posts e categorias
+
+Visualização de post detalhado
+
+Criar, editar e deletar posts
+
+Upload de imagens para posts
+
+Adicionar comentários
+
+Paginação de posts
+
+Login e logout
